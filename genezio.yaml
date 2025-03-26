@@ -1,0 +1,17 @@
+backend:
+    functions:
+        - entry: index.mjs
+          handler: handler
+          name: hello-world-function
+          path: ./
+          type: aws
+    language:
+        name: js
+        packageManager: npm
+    path: ./
+    scripts:
+        deploy:
+            - npm install
+name: triumf-tenis-cron
+region: eu-central-1
+yamlVersion: 2
