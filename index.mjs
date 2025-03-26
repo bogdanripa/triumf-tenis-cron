@@ -1,11 +1,11 @@
-// see https://genezio.com/docs/tutorials/how-to-deploy-a-serverless-function/ to learn more about function usage and parameters
-
 export const handler = async (event) => {
-  console.log("Function was called");
-  console.log(event);
-  const name = event.queryStringParameters?.name || "World";
+  const response = await fetch(
+    'https://triumf-tenis.next.genez.io/api/update/'
+  );
+  const responseJson = await response.json();
+  console.log(JSON.stringify(responseJson));
   return {
     statusCode: 200,
-    body: `Hello, ${name}! Welcome to Genezio Functions!`,
+    body: 'ok',
   };
 };

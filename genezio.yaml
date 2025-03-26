@@ -2,7 +2,7 @@ backend:
     functions:
         - entry: index.mjs
           handler: handler
-          name: hello-world-function
+          name: job
           path: ./
           type: aws
     language:
@@ -15,3 +15,8 @@ backend:
 name: triumf-tenis-cron
 region: eu-central-1
 yamlVersion: 2
+services:
+  crons:
+    - name: my-cron
+      function: ${{backend.functions.job.name}}
+      schedule: "45 * * * *"
